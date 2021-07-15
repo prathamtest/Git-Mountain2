@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="328" height="264" viewBox="0 0 328 264">
+    <defs>
+        <radialGradient id="rdiqskkseb" cx=".925" cy=".248" r=".997" gradientTransform="matrix(.738 .4 -.219 .623 .297 -.276)" gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-color="#fff" stop-opacity=".325"/>
+            <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+        </radialGradient>
+        <linearGradient id="65bee5irga" x1=".5" x2=".5" y1="1" gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-color="#002954"/>
+            <stop offset="1" stop-color="#001d3b" stop-opacity="0"/>
+        </linearGradient>
+    </defs>
+    <g transform="translate(-16 -262)">
+        <path fill="url(#65bee5irga)" d="M0 0h328v73a8 8 0 0 1-8 8H8a8 8 0 0 1-8-8V0z" transform="translate(16 445)"/>
+        <rect width="328" height="264" fill="url(#rdiqskkseb)" opacity="0.7" rx="8" transform="translate(16 262)"/>
+        <g fill="none" stroke="#fff" opacity="0.07" transform="translate(16 262)">
+            <rect width="328" height="264" stroke="none" rx="8"/>
+            <rect width="327" height="263" x=".5" y=".5" rx="7.5"/>
+        </g>
+    </g>
+</svg>

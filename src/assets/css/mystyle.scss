@@ -1,0 +1,363 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.trf {
+  transform: translateZ(20px);
+  transition: all 0.75s ease-out;
+}
+
+.container {
+  // width: 50%;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  perspective: 1000px;
+  // transform-style: preserve-3d;
+
+  .card_sixth {
+
+    border-radius: 8px;
+    // -webkit-filter: blur(30.2px);
+    // filter: blur(30.2px);
+    box-shadow: 1px 15px 12px 13px rgb(0 0 0 / 16%);
+    background-color: #003975;
+
+    // transform-style: preserve-3d;
+    // background-repeat: no-repeat;
+    // background-position: bottom;
+    // background-size: cover;
+    // height: 256px;
+    // width: 328px;
+
+    .card_fifth {
+      border-radius: 8px;
+      box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+      background-color: #012954;
+      overflow: hidden;
+      width: 328px;
+      height: 264px;
+
+      position: relative;
+
+      // background-size: cover;
+      // transform-style: preserve-3d;
+      // perspective: 1000px;
+      // transform-style: preserve-3d;
+      .card_fourth {
+        border-radius: 8px;
+        background-image: url(../assets/fourth.jpg);
+        background-repeat: no-repeat;
+        background-position: inherit;
+        background-size: cover;
+        width: 470px;
+        height: 327px;
+        position: absolute;
+        margin-left: -60px;
+        margin-top: -20px;
+        // transform-style: preserve-3d;
+
+      }
+
+      .card_third {
+        border-radius: 8px;
+        background-image: url(../assets/third.png);
+        background-repeat: no-repeat;
+        background-position: bottom;
+        background-size: cover;
+        width: 470px;
+        height: 327px;
+        //  margin-left: -50px;
+        // transform-style: preserve-3d;
+        position: absolute;
+        left: -60px;
+      }
+
+    }
+
+    .card_second {
+      border-radius: 8px;
+      background-image: url(../assets/second.svg);
+      background-repeat: no-repeat;
+      background-position: bottom;
+      background-size: cover;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 264px;
+
+      .card_first {
+        padding: 16px;
+
+        .heading_wrap {
+          display: flex;
+          justify-content: space-between;
+          flex-flow: row;
+          margin-bottom: 76px;
+
+          .row_left {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            flex-flow: column;
+
+            .txt_1 {
+              font-family: "Roboto-Regular";
+              font-size: 14px;
+              font-weight: normal;
+              font-stretch: normal;
+              font-style: normal;
+              line-height: 1.14;
+              letter-spacing: normal;
+              text-align: left;
+              color: #ffffff;
+
+            }
+
+            .txt_2 {
+              opacity: 0.6;
+              font-family: "Roboto-Medium";
+              font-size: 10px;
+              font-weight: 500;
+              font-stretch: normal;
+              font-style: normal;
+              line-height: 1.1;
+              letter-spacing: normal;
+              text-align: left;
+              color: #ffffff;
+            }
+          }
+
+          .row_right {
+            .lock_img {}
+          }
+        }
+
+        .info_warp {
+          .sec_1 {
+            display: flex;
+            align-items: baseline;
+            margin-bottom: 18px;
+
+            .txt_amount_1 {
+              font-family: "Roboto-Black";
+              font-size: 28px;
+              font-weight: 900;
+              font-stretch: normal;
+              font-style: normal;
+              line-height: 1.18;
+              letter-spacing: normal;
+              text-align: left;
+              color: #ffffff;
+              margin-right: 8px;
+            }
+
+            .txt_amount_2 {
+              opacity: 0.9;
+              font-family: "Roboto-Medium";
+              font-size: 16px;
+              font-weight: 500;
+              font-stretch: normal;
+              font-style: normal;
+              line-height: 1.19;
+              letter-spacing: normal;
+              text-align: left;
+              color: #ffffff;
+              margin-right: 4px;
+            }
+
+            .txt_amount_3 {
+              opacity: 0.9;
+              font-family: "Roboto-Regular";
+              font-size: 12px;
+              font-weight: normal;
+              font-stretch: normal;
+              font-style: normal;
+              line-height: 1.17;
+              letter-spacing: normal;
+              text-align: left;
+              color: #ffffff;
+            }
+          }
+
+          .sec_2 {
+            display: flex;
+
+            .left_sec {
+              margin-right: 40px;
+
+              .days_gain_loss {
+                opacity: 0.7;
+                font-family: "Roboto-Regular";
+                font-size: 12px;
+                font-weight: normal;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: 1.17;
+                letter-spacing: normal;
+                text-align: left;
+                color: #ffffff;
+                margin-bottom: 4px;
+              }
+
+              .amt_count_sec {
+                display: flex;
+                align-items: baseline;
+
+                .profit_first {
+                  margin-right: 4px;
+                }
+
+                .amt_first {
+                  font-family: "Roboto-Medium";
+                  font-size: 16px;
+                  font-weight: 500;
+                  font-stretch: normal;
+                  font-style: normal;
+                  line-height: 1.19;
+                  letter-spacing: normal;
+                  text-align: left;
+                  color: #ffffff;
+                  margin-right: 6px;
+                }
+
+                .perc_first {
+                  display: flex;
+
+                  .perc_first_1 {
+                    font-family: "Roboto-Regular";
+                    font-size: 12px;
+                    font-weight: 500;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: 1.17;
+                    letter-spacing: normal;
+                    text-align: left;
+                    color: #7ac768;
+                  }
+
+                  .perc_first_2 {
+                    font-family: "Roboto-Regular";
+                    font-size: 12px;
+                    font-weight: 500;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: 1.17;
+                    letter-spacing: normal;
+                    text-align: left;
+                    color: #7ac768;
+                    font-weight: normal;
+                    color: rgba(255, 255, 255, 0.3);
+                  }
+
+
+                }
+              }
+            }
+
+            .right_sec {
+              .total_gain_loss {
+                opacity: 0.7;
+                font-family: "Roboto-Regular";
+                font-size: 12px;
+                font-weight: normal;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: 1.17;
+                letter-spacing: normal;
+                text-align: left;
+                color: #ffffff;
+                margin-bottom: 4px;
+              }
+
+              .days_count_sec {
+                display: flex;
+                align-items: baseline;
+
+                .profit_first {
+                  margin-right: 4px;
+                }
+
+                .days_first {
+                  font-family: "Roboto-Medium";
+                  font-size: 16px;
+                  font-weight: 500;
+                  font-stretch: normal;
+                  font-style: normal;
+                  line-height: 1.19;
+                  letter-spacing: normal;
+                  text-align: left;
+                  color: #ffffff;
+                  margin-right: 6px;
+                }
+
+                .perc_first {
+                  display: flex;
+
+                  .perc_first_1 {
+                    font-family: "Roboto-Regular";
+                    font-size: 12px;
+                    font-weight: 500;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: 1.17;
+                    letter-spacing: normal;
+                    text-align: left;
+                    color: #7ac768;
+                  }
+
+                  .perc_first_2 {
+                    font-family: "Roboto-Regular";
+                    font-size: 12px;
+                    font-weight: 500;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: 1.17;
+                    letter-spacing: normal;
+                    text-align: left;
+                    color: #7ac768;
+                    font-weight: normal;
+                    color: rgba(255, 255, 255, 0.3);
+                  }
+
+
+                }
+              }
+            }
+          }
+
+          .sec_3 {
+            opacity: 0.3;
+            font-family: "Roboto-Regular";
+            font-size: 10px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.1;
+            letter-spacing: normal;
+            text-align: left;
+            color: #ffffff;
+            margin-top: 8px;
+          }
+
+          .sec_4 {
+            text-align: center;
+          }
+        }
+
+
+      }
+    }
+  }
+}

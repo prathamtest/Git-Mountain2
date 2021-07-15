@@ -8,8 +8,12 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'mt-cd',
     pathMatch: 'full'
+  },
+  {
+    path: 'mt-cd',
+    loadChildren: () => import('./mt-cd/mt-cd.module').then( m => m.MtCdPageModule)
   },
 ];
 
