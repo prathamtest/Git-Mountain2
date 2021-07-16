@@ -16,6 +16,7 @@ body {
 .test_gys{
   padding: 16px;
   margin: 16px;
+  color:#222;
 }
 .trf {
   transform: translateZ(20px);
@@ -35,7 +36,7 @@ body {
   height: 264px;
   margin: auto;
   margin-top: 50px;
-  
+
   // transform-style: preserve-3d;
 
   .card_sixth {
@@ -43,9 +44,9 @@ body {
     border-radius: 8px;
     // -webkit-filter: blur(30.2px);
     // filter: blur(30.2px);
-    // box-shadow: 1px 15px 12px 13px rgba(0 0 0 / 16%); 
+    // box-shadow: 1px 15px 12px 13px rgba(0 0 0 / 16%);
     background-color: #003975;
- 
+
     // transform-style: preserve-3d;
     // background-repeat: no-repeat;
     // background-position: bottom;
@@ -78,11 +79,23 @@ body {
         position: absolute;
         left: -16px;
         top: -16px;
+        transition :all 3s;
       //  margin-left: -32px;
         // margin-top: -40px;
         // left: 0;
         // transform-style: preserve-3d;
-
+        &.moveRight{
+          left: 0;
+        }
+        &.moveLeft{
+          left: -32px;
+        }
+        &.moveUp{
+          top: -32px;
+        }
+        &.moveDown{
+          top: 0;
+        }
       }
 
       .card_third {
@@ -95,9 +108,22 @@ body {
         height: 297px;
         left: -32px;
         top: -16px;
-        // transform-style: preserve-3d;
+        transition :all 2s;
         position: absolute;
-         
+        transition-timing-function: cubic-bezier(0.1, 0.7, 1.0, 0.1);
+        &.moveRight{
+          left: 0;
+        }
+        &.moveLeft{
+          left: -64px;
+        }
+        &.moveUp{
+          top: -32px;
+        }
+        &.moveDown{
+          top: 16px;
+        }
+
       }
 
     }
