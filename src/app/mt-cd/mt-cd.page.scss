@@ -19,8 +19,8 @@ body {
   color:#222;
 }
 .trf {
-  transform: translateZ(20px);
-  transition: all 0.75s ease-out;
+  // transform: translateZ(20px);
+  // transition: all 0.75s ;
 
   // transition: cubic-bezier(0.42,0,0.58,1);  // as per zeplin
 }
@@ -108,9 +108,9 @@ body {
         height: 297px;
         left: -32px;
         top: -16px;
-        transition :all 2s;
         position: absolute;
-        transition-timing-function: cubic-bezier(0.1, 0.7, 1.0, 0.1);
+        transition :all 3s;
+        // transition-timing-function: cubic-bezier(0.1, 0.7, 1.0, 0.1);
         &.moveRight{
           left: 0;
         }
