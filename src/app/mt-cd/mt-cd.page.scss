@@ -79,23 +79,13 @@ body {
         position: absolute;
         left: -16px;
         top: -16px;
-        transition :all 3s;
+        transition :all 1.5s;
+        transition-duration: 0;
+
       //  margin-left: -32px;
         // margin-top: -40px;
         // left: 0;
         // transform-style: preserve-3d;
-        &.moveRight{
-          left: 0;
-        }
-        &.moveLeft{
-          left: -32px;
-        }
-        &.moveUp{
-          top: -32px;
-        }
-        &.moveDown{
-          top: 0;
-        }
       }
 
       .card_third {
@@ -109,20 +99,10 @@ body {
         left: -32px;
         top: -16px;
         position: absolute;
-        transition :all 3s;
+        transition :all 1.5s;
+        transition-duration: 0;
         // transition-timing-function: cubic-bezier(0.1, 0.7, 1.0, 0.1);
-        &.moveRight{
-          left: 0;
-        }
-        &.moveLeft{
-          left: -64px;
-        }
-        &.moveUp{
-          top: -32px;
-        }
-        &.moveDown{
-          top: 16px;
-        }
+
 
       }
 

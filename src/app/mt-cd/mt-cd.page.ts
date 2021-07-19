@@ -27,10 +27,33 @@ export class MtCdPage implements OnInit {
 
   public x:number;
   public y:number;
-  private moveLeftClass = 'moveLeft';
-  private moveRightClass = 'moveRight';
-  private moveUpClass = 'moveUp';
-  private moveDownClass = 'moveDown';
+
+  private movement = {
+    horizontal : 'horizontal',
+    vertical : 'vertical'
+  }
+
+  private mountainLimits = {
+    extremeLeft : -64,
+    extremeRight : 0,
+    horizontalMiddle : -32,
+    extremeTop : -32,
+    extremeBottom : 0,
+    verticalMiddle : -16,
+    steps: 8
+  }
+
+  private skyLimits = {
+    extremeLeft : -32,
+    extremeRight : 0,
+    horizontalMiddle : -16,
+    extremeTop : -32,
+    extremeBottom : 0,
+    verticalMiddle : -16,
+    steps: 8
+  }
+
+  public test : any;
 
   constructor(public deviceMotion: DeviceMotion, private deviceOrientation: DeviceOrientation) {}
 
@@ -41,35 +64,21 @@ export class MtCdPage implements OnInit {
       };
       this.idxyp = this.deviceMotion.watchAcceleration(option).subscribe((acc: DeviceMotionAccelerationData) => {
 
-        this.x = acc.x;
-        this.y = acc.y;
+        this.x = Math.trunc(acc.x);
+        this.y = Math.trunc(acc.y);
 
-        // For Mountain movement
-        if(this.x > 4){
-          this.toggleClass(this.card3, this.moveRightClass);
-        } else if(this.x < -4) {
-          this.toggleClass(this.card3, this.moveLeftClass);
-        }else if(this.y > 4){
-          this.toggleClass(this.card3, this.moveDownClass);
-        } else if(this.y < 4 ) {
-          this.toggleClass(this.card3, this.moveUpClass);
-        } else{
-          this.clearClassList(this.card3);
+        let mountain = {
+          left : this.calculate(this.movement.horizontal, this.x, this.mountainLimits),
+          top : this.calculate(this.movement.vertical, this.y, this.mountainLimits)
         }
 
-        //For Sky movement
-        if(this.x > 4){
-          this.toggleClass(this.card4, this.moveLeftClass);
-        } else if(this.x < -4 ) {
-          this.toggleClass(this.card4, this.moveRightClass);
-        }else if(this.y > 4){
-          this.toggleClass(this.card4, this.moveUpClass);
-        } else if(this.y < 4 ) {
-          this.toggleClass(this.card4, this.moveDownClass);
-        }  else{
-          this.clearClassList(this.card4);
+        let sky = {
+          left : this.calculate(this.movement.horizontal, this.x, this.skyLimits, true),
+          top : this.calculate(this.movement.vertical, this.y, this.skyLimits, true)
         }
 
+        this.setPosition(this.card3, mountain);
+        this.setPosition(this.card4, sky);
         }
 
       )
@@ -77,22 +86,53 @@ export class MtCdPage implements OnInit {
       alert(err);
     }
   }
+
   stop() {
     this.idxyp.unsubscribe();
   }
 
-  toggleClass(card, className){
-    if(!card.classList.contains(className)){
-      this.clearClassList(card);
-      card.classList.add(className);
+  calculate(movement, value, limits, invertDirection = false){
+    let valueSign = Math.sign(value);
+    let positionGap = movement == this.movement.horizontal ? 4 : 2;
+    let returnValue : number;
+    if(!value){
+      returnValue = (movement == this.movement.horizontal) ? limits.horizontalMiddle : limits.verticalMiddle;
+    } else {
+      let startValue = movement == this.movement.horizontal ? limits.horizontalMiddle : limits.verticalMiddle;
+      let endValue : number;
+      if(invertDirection){
+        endValue = movement == this.movement.horizontal ? (valueSign == -1 ? limits.extremeRight : limits.extremeLeft)
+        :  (valueSign == -1 ? limits.extremeBottom : limits.extremeTop);
+      } else {
+        endValue = movement == this.movement.horizontal ? (valueSign == -1 ? limits.extremeLeft : limits.extremeRight)
+        :  (valueSign == -1 ? limits.extremeTop : limits.extremeBottom);
+      }
+
+      let postionValues = this.getAxisPoints(startValue, endValue);
+      returnValue = postionValues[ Math.abs(value) * positionGap ] ;
+      returnValue = returnValue ? returnValue : postionValues[postionValues.length - 1];
     }
+    return returnValue;
   }
 
-  clearClassList(card){
-    card.classList.remove(this.moveLeftClass);
-    card.classList.remove(this.moveRightClass);
-    card.classList.remove(this.moveUpClass);
-    card.classList.remove(this.moveDownClass);
+  getAxisPoints(startValue, endValue){
+    var list = [];
+    let endValueSign = Math.sign(endValue);
+    if(endValueSign == -1){
+      for (var i = startValue; i >= endValue ; i--) {
+          list.push(i);
+      }
+    } else {
+      for (var i = startValue; i <= endValue ; i++) {
+          list.push(i);
+      }
+    }
+    return list;
+  }
+
+  setPosition(card, value){
+    card.style.left =  value.left + 'px';
+    card.style.top =  value.top + 'px';
   }
 
   ngOnInit() {
