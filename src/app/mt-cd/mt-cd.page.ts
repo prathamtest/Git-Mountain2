@@ -29,7 +29,7 @@ export class MtCdPage implements OnInit {
   public y:number;
 
   private mountainLimits = {
-    movementConstant : 1.4
+    movementConstant : 1
   }
 
   private skyLimits = {
