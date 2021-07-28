@@ -69,6 +69,7 @@ body {
       // perspective: 1000px;
       // transform-style: preserve-3d;
       .card_fourth {
+        perspective: 1000px;
         border-radius: 8px;
         background-image: url('/assets/icon/fourth.jpg');
         background-repeat: no-repeat;
@@ -102,6 +103,7 @@ body {
         // transition-timing-function: cubic-bezier(0.1, 0.7, 1.0, 0.1);
         transition :ease-in-out 1s;
         transition-timing-function: cubic-bezier(0.1, 0.7, 1.0, 0.1);
+        transform-style: preserve-3d;
 
       }
 

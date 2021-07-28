@@ -29,7 +29,7 @@ export class MtCdPage implements OnInit {
   public y:number;
 
   private mountainLimits = {
-    movementConstant : 0.4
+    movementConstant : 1.2
   }
 
   private skyLimits = {
@@ -45,25 +45,21 @@ export class MtCdPage implements OnInit {
       };
       this.idxyp = this.deviceMotion.watchAcceleration(option).subscribe((acc: DeviceMotionAccelerationData) => {
 
-        this.x = acc.x;
-        this.y = acc.y;
-
-        if( this.x > 7 ){
-          return;
-        }
+        this.x = Math.trunc(acc.x);
+        this.y = Math.trunc(acc.y);
 
         let mountain = {
-          left : this.calculate(this.x, this.mountainLimits,false),
-          top : this.calculate(this.y, this.mountainLimits,false)
+          left : this.calculate(this.x,false),
+          top : this.calculate(this.y,false)
         }
 
         let sky = {
-          left : this.calculate(this.x, this.skyLimits, true,),
-          top : this.calculate(this.y, this.skyLimits, true)
+          left : this.calculate(this.x, true,),
+          top : this.calculate(this.y, true)
         }
 
-        this.setPosition(this.card3, mountain);
-        this.setPosition(this.card4, sky);
+        this.setPosition(this.card3, mountain, this.mountainLimits, true);
+        this.setPosition(this.card4, sky, this.skyLimits, false);
 
         }
 
@@ -77,12 +73,18 @@ export class MtCdPage implements OnInit {
     this.idxyp.unsubscribe();
   }
 
-  calculate(value, limits, invertDirection = false){
-    return invertDirection ? -(value) * limits.movementConstant : value * limits.movementConstant;
+  calculate(value, invertDirection = false){
+    return invertDirection ? -(value) : value ;
   }
 
-  setPosition(card, value){
-    card.style.transform = "translateX(" + value.left +"%)"
+  setPosition(card, value, limits, rotate){
+    if(value.left < 7 && value.left > -7){
+      if(rotate) {
+        card.style.transform = "translateX(" + (value.left * limits.movementConstant) +"%) rotateY("+ value.left * 2 +"deg)"
+      } else {
+        card.style.transform = "translateX(" + (value.left * limits.movementConstant) +"%)"
+      }
+    }
   }
 
   ngOnInit() {
