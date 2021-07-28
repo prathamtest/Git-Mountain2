@@ -81,7 +81,7 @@ export class MtCdPage implements OnInit {
     // card.style.transform = "translate(" + value.left +"%, "+ value.top + "%)"
     // card.style.transform = "translate(" + value.left +"%)"
     card.style.transform = "rotateY(" + value.left +"deg) rotateX(" + value.top +"deg)" 
-  }
+  } 
 
   ngOnInit() {
     this.card4 = document.querySelector(".card_fourth");
