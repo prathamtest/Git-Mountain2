@@ -29,11 +29,11 @@ export class MtCdPage implements OnInit {
   public y:number;
 
   private mountainLimits = {
-    movementConstant : .9
+    movementConstant : 0.4
   }
 
   private skyLimits = {
-    movementConstant : 0.65
+    movementConstant : 0.5
   }
 
   constructor(public deviceMotion: DeviceMotion, private deviceOrientation: DeviceOrientation) {}
@@ -41,12 +41,16 @@ export class MtCdPage implements OnInit {
   start() {
     try {
       var option: DeviceMotionAccelerometerOptions = {
-        frequency: 10
+        frequency: 1
       };
       this.idxyp = this.deviceMotion.watchAcceleration(option).subscribe((acc: DeviceMotionAccelerationData) => {
 
         this.x = acc.x;
         this.y = acc.y;
+
+        if( this.x > 7 ){
+          return;
+        }
 
         let mountain = {
           left : this.calculate(this.x, this.mountainLimits,false),
@@ -59,7 +63,7 @@ export class MtCdPage implements OnInit {
         }
 
         this.setPosition(this.card3, mountain);
-        // this.setPosition(this.card4, sky);
+        this.setPosition(this.card4, sky);
 
         }
 
@@ -78,7 +82,7 @@ export class MtCdPage implements OnInit {
   }
 
   setPosition(card, value){
-    card.style.transform = "translate(" + value.left +"%, "+ value.top + "%)"
+    card.style.transform = "translateX(" + value.left +"%)"
   }
 
   ngOnInit() {

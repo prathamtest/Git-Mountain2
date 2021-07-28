@@ -79,7 +79,8 @@ body {
         position: absolute;
         left: -16px;
         top: -16px;
-        transition :all .6s;
+        transition :ease-in-out 0.1s;
+        transition-timing-function: cubic-bezier(0.1, 0.7, 1.0, 0.1);
 
       //  margin-left: -32px;
         // margin-top: -40px;
@@ -89,7 +90,7 @@ body {
 
       .card_third {
         border-radius: 8px;
-        background-image: url('/assets/icon/third.png');
+        background-image: url('/assets/icon/third1.png');
         background-repeat: no-repeat;
         background-position: bottom;
         background-size: cover;
@@ -98,9 +99,9 @@ body {
         left: -32px;
         top: -16px;
         position: absolute;
-        transition :all .6s;
         // transition-timing-function: cubic-bezier(0.1, 0.7, 1.0, 0.1);
-
+        transition :ease-in-out 1s;
+        transition-timing-function: cubic-bezier(0.1, 0.7, 1.0, 0.1);
 
       }
 
