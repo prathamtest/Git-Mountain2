@@ -29,7 +29,7 @@ export class MtCdPage implements OnInit {
   public y:number;
 
   private mountainLimits = {
-    movementConstant : 1.2
+    movementConstant : 4
   }
 
   private skyLimits = {
@@ -78,9 +78,9 @@ export class MtCdPage implements OnInit {
   }
 
   setPosition(card, value, limits, rotate){
-    if(value.left < 7 && value.left > -7){
+    if(value.left < 3 && value.left > -3){
       if(rotate) {
-        card.style.transform = "translateX(" + (value.left * limits.movementConstant) +"%) rotateY("+ value.left * 2 +"deg)"
+        card.style.transform = "translateX(" + (value.left * limits.movementConstant) +"%) rotateY("+ value.left * 10 +"deg)"
       } else {
         card.style.transform = "translateX(" + (value.left * limits.movementConstant) +"%)"
       }
