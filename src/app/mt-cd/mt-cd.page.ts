@@ -33,7 +33,7 @@ export class MtCdPage implements OnInit {
   }
 
   private skyLimits = {
-    movementConstant : 0.65
+    movementConstant : 0.9
   }
 
   constructor(public deviceMotion: DeviceMotion, private deviceOrientation: DeviceOrientation) {}
@@ -41,7 +41,7 @@ export class MtCdPage implements OnInit {
   start() {
     try {
       var option: DeviceMotionAccelerometerOptions = {
-        frequency: 10
+        frequency: 1
       };
       this.idxyp = this.deviceMotion.watchAcceleration(option).subscribe((acc: DeviceMotionAccelerationData) => {
 
@@ -74,7 +74,7 @@ export class MtCdPage implements OnInit {
   }
 
   calculate(value, limits, invertDirection = false){
-    return invertDirection ? -(value) * limits.movementConstant * 2 : value * limits.movementConstant * 7;
+    return invertDirection ? -(value) * limits.movementConstant * 2 : value * limits.movementConstant * 6;
   }
 
   setPosition(card, value){
