@@ -79,17 +79,24 @@ body {
         position: absolute;
         left: -16px;
         top: -16px;
-        transition :all .6s;
+        // perspective: 1000px;
+        // transition :ease-in-out .5s;
 
       //  margin-left: -32px;
         // margin-top: -40px;
         // left: 0;
         // transform-style: preserve-3d;
+        // transition-timing-function: cubic-bezier(0.1, 0.7, 1.0, 0.1);
+
+    //     ease-in-out cubic bezier (0.42,0,0.58,1).  as per zeplin mention
+    transition :ease-in-out 1s;
+        transition-timing-function: cubic-bezier(0.1, 0.7, 1.0, 0.1);
+  
       }
 
       .card_third {
         border-radius: 8px;
-        background-image: url('/assets/icon/third.png');
+        background-image: url('/assets/icon/third1.png');
         background-repeat: no-repeat;
         background-position: bottom;
         background-size: cover;
@@ -98,9 +105,11 @@ body {
         left: -32px;
         top: -16px;
         position: absolute;
-        transition :all .6s;
+        // transform: rotateY(24deg);
+        // transition :all .4s;
         // transition-timing-function: cubic-bezier(0.1, 0.7, 1.0, 0.1);
-
+        transition :ease-in-out 1s;
+        transition-timing-function: cubic-bezier(0.1, 0.7, 1.0, 0.1);
 
       }
 

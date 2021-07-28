@@ -29,7 +29,7 @@ export class MtCdPage implements OnInit {
   public y:number;
 
   private mountainLimits = {
-    movementConstant : .9
+    movementConstant : .4
   }
 
   private skyLimits = {
@@ -59,7 +59,7 @@ export class MtCdPage implements OnInit {
         }
 
         this.setPosition(this.card3, mountain);
-        // this.setPosition(this.card4, sky);
+        this.setPosition(this.card4, sky);
 
         }
 
@@ -74,11 +74,13 @@ export class MtCdPage implements OnInit {
   }
 
   calculate(value, limits, invertDirection = false){
-    return invertDirection ? -(value) * limits.movementConstant : value * limits.movementConstant;
+    return invertDirection ? -(value) * limits.movementConstant * 2 : value * limits.movementConstant * 7;
   }
 
   setPosition(card, value){
-    card.style.transform = "translate(" + value.left +"%, "+ value.top + "%)"
+    // card.style.transform = "translate(" + value.left +"%, "+ value.top + "%)"
+    // card.style.transform = "translate(" + value.left +"%)"
+    card.style.transform = "rotateY(" + value.left +"deg) rotateX(" + value.top +"deg)" 
   }
 
   ngOnInit() {
