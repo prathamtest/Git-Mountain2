@@ -33,7 +33,7 @@ export class MtCdPage implements OnInit {
   }
 
   private skyLimits = {
-    movementConstant : 0.9
+    movementConstant : 0.7
   }
 
   constructor(public deviceMotion: DeviceMotion, private deviceOrientation: DeviceOrientation) {}
