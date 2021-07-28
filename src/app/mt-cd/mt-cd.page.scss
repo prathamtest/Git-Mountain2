@@ -71,16 +71,16 @@ body {
       .card_fourth {
         perspective: 1000px;
         border-radius: 8px;
-        background-image: url('/assets/icon/fourth.jpg');
+        background-image: url('/assets/icon/pc3.jpg');
         background-repeat: no-repeat;
         background-position: inherit;
         background-size: cover;
-        width: 360px;
+        width: 460px;
         height: 297px;
-        position: absolute;
-        left: -16px;
+        position: relative;
+        left: -66px;
         top: -16px;
-        transform-style: preserve-3d;
+        // transform-style: preserve-3d;
         
         
         // transition :all 0.3s;
@@ -98,20 +98,20 @@ body {
 
       .card_third {
         border-radius: 8px;
-        background-image: url('/assets/icon/third1.png');
+        background-image: url('/assets/icon/pc.png');
         background-repeat: no-repeat;
         background-position: bottom;
         background-size: cover;
-        width: 392px;
-        height: 297px;
-        left: -32px;
-        top: -16px;
+        width: 184px;
+        height: 421px;
+        left: 148px;
+        top: 29px;
         transform-style: preserve-3d;
         position: absolute;
         // transition-timing-function: cubic-bezier(0.1, 0.7, 1.0, 0.1);
         // transition :ease-in-out 0.5s;
         // transition-timing-function: cubic-bezier(0.1, 0.7, 1.0, 0.1);
-        transition-duration: 1s;
+        transition-duration: 2s;
         transition-timing-function: ease-in;
 
 

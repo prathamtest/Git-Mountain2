@@ -29,13 +29,13 @@ export class MtCdPage implements OnInit {
   public y:number;
 
   private mountainLimits = {
-    movementConstant : 1.5
-    // movementConstant : 0.7
+    // movementConstant : 1.5
+    movementConstant : 4
   }
 
   private skyLimits = {
-    movementConstant : 2.3
     // movementConstant : 2.3
+    movementConstant : 3
   }
 
   constructor(public deviceMotion: DeviceMotion, private deviceOrientation: DeviceOrientation) {}
@@ -76,16 +76,17 @@ export class MtCdPage implements OnInit {
   }
 
   calculate(value, invertDirection = false){
-    return invertDirection ? -(value) : value ;
+    return invertDirection ? value : -(value) ;
   }
 
   setPosition(card, value, limits, rotate){
     if(value.left < 3 && value.left > -3){
       if(rotate) {
-        card.style.transform = "translateX(" + (value.left * limits.movementConstant) +"%) rotateY("+ value.left * (-9) +"deg)"
-        // card.style.transform = "translateX(" + (value.left * limits.movementConstant) +"%) rotateY("+ value.left * (-7) +"deg)"
+        // card.style.transform = "translateX(" + (value.left * limits.movementConstant) +"%) rotateY("+ value.left * (-9) +"deg)"
+        card.style.transform = "translateX(" + (value.left * limits.movementConstant) +"%) rotateY("+ value.left * (-4) +"deg) rotateX("+ value.left * (-4) +"deg)"
       } else {
-        card.style.transform = "translateX(" + (value.left * limits.movementConstant) +"%)"
+        // card.style.transform = "translateX(" + (value.left * limits.movementConstant) +"%)"
+        card.style.transform = "translateX(" + (value.left * limits.movementConstant) +"%) rotateY("+ value.left * (-12) +"deg)"
       }
     }
   }
