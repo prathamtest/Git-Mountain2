@@ -29,11 +29,13 @@ export class MtCdPage implements OnInit {
   public y:number;
 
   private mountainLimits = {
-    movementConstant : .9
+    movementConstant : 1.5
+    // movementConstant : 0.7
   }
 
   private skyLimits = {
-    movementConstant : 0.65
+    movementConstant : 2.3
+    // movementConstant : 2.3
   }
 
   constructor(public deviceMotion: DeviceMotion, private deviceOrientation: DeviceOrientation) {}
@@ -41,25 +43,25 @@ export class MtCdPage implements OnInit {
   start() {
     try {
       var option: DeviceMotionAccelerometerOptions = {
-        frequency: 10
+        frequency: 1
       };
       this.idxyp = this.deviceMotion.watchAcceleration(option).subscribe((acc: DeviceMotionAccelerationData) => {
 
-        this.x = acc.x;
-        this.y = acc.y;
+        this.x = Math.trunc(acc.x);
+        this.y = Math.trunc(acc.y);
 
         let mountain = {
-          left : this.calculate(this.x, this.mountainLimits,false),
-          top : this.calculate(this.y, this.mountainLimits,false)
+          left : this.calculate(this.x,false),
+          top : this.calculate(this.y,false)
         }
 
         let sky = {
-          left : this.calculate(this.x, this.skyLimits, true,),
-          top : this.calculate(this.y, this.skyLimits, true)
+          left : this.calculate(this.x, true,),
+          top : this.calculate(this.y, true)
         }
 
-        this.setPosition(this.card3, mountain);
-        this.setPosition(this.card4, sky);
+        this.setPosition(this.card3, mountain, this.mountainLimits, true);
+        this.setPosition(this.card4, sky, this.skyLimits, false);
 
         }
 
@@ -73,13 +75,19 @@ export class MtCdPage implements OnInit {
     this.idxyp.unsubscribe();
   }
 
-  calculate(value, limits, invertDirection = false){
-    return invertDirection ? -(value) * limits.movementConstant : value * limits.movementConstant;
+  calculate(value, invertDirection = false){
+    return invertDirection ? -(value) : value ;
   }
 
-  setPosition(card, value){
-    // card.style.transform = "translate(" + value.left +"%, "+ value.top + "%)"
-    card.style.transform = "translate(" + value.left +"%)"
+  setPosition(card, value, limits, rotate){
+    if(value.left < 3 && value.left > -3){
+      if(rotate) {
+        card.style.transform = "translateX(" + (value.left * limits.movementConstant) +"%) rotateY("+ value.left * (-9) +"deg)"
+        // card.style.transform = "translateX(" + (value.left * limits.movementConstant) +"%) rotateY("+ value.left * (-7) +"deg)"
+      } else {
+        card.style.transform = "translateX(" + (value.left * limits.movementConstant) +"%)"
+      }
+    }
   }
 
   ngOnInit() {
