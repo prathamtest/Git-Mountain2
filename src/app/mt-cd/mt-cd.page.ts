@@ -59,7 +59,7 @@ export class MtCdPage implements OnInit {
         }
 
         this.setPosition(this.card3, mountain);
-        // this.setPosition(this.card4, sky);
+        this.setPosition(this.card4, sky);
 
         }
 
@@ -78,7 +78,8 @@ export class MtCdPage implements OnInit {
   }
 
   setPosition(card, value){
-    card.style.transform = "translate(" + value.left +"%, "+ value.top + "%)"
+    // card.style.transform = "translate(" + value.left +"%, "+ value.top + "%)"
+    card.style.transform = "translate(" + value.left +"%)"
   }
 
   ngOnInit() {
