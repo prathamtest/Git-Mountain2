@@ -78,8 +78,8 @@ export class MtCdPage implements OnInit {
   }
 
   setPosition(card, value){
-    // card.style.transform = "translate(" + value.left +"%, "+ value.top + "%)"
-    card.style.transform = "translate(" + value.left +"%)"
+    card.style.transform = "translate(" + value.left +"%, "+ value.top + "%)"
+    // card.style.transform = "translate(" + value.left +"%)"
   }
 
   ngOnInit() {
