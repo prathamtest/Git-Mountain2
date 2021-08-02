@@ -90,8 +90,9 @@ body {
         // margin-top: -40px;
         // left: 0;
 
-        transition-duration: 1s;
-        transition-timing-function: linear;
+        // transition-duration: 1s;
+        // transition-timing-function: linear;
+        transition :linear .1s;
         transition-property: transform;
       
       }
@@ -111,11 +112,11 @@ body {
         // transition-timing-function: cubic-bezier(0.1, 0.7, 1.0, 0.1);
         // transition :ease-in-out 0.5s;
         // transition-timing-function: cubic-bezier(0.1, 0.7, 1.0, 0.1);
-        transition-duration: 1s;
-        transition-timing-function: ease-in;
+        // transition-duration: 1s;
+        // transition-timing-function: ease-in;
 
 
-
+        transition :linear .1s;
         transition-property: transform;
       
         // transition-duration: 0.5s;
