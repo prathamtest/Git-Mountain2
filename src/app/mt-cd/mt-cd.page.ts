@@ -52,12 +52,12 @@ export class MtCdPage implements OnInit {
 
         let mountain = {
           left : this.calculate(this.x,false),
-          top : this.calculate(this.y,false)
+          top : this.calculate(-this.y,false)
         }
 
         let sky = {
           left : this.calculate(this.x, true,),
-          top : this.calculate(this.y, true)
+          top : this.calculate(-this.y, true)
         }
 
         this.setPosition(this.card3, mountain, this.mountainLimits, true);
