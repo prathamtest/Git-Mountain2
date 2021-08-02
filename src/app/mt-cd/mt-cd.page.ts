@@ -61,7 +61,7 @@ export class MtCdPage implements OnInit {
         }
 
         this.setPosition(this.card3, mountain, this.mountainLimits, true);
-        this.setPosition(this.card4, sky, this.skyLimits, false);
+        this.setPosition(this.card4, sky, this.skyLimits, true);
 
         }
 
@@ -75,17 +75,18 @@ export class MtCdPage implements OnInit {
     this.idxyp.unsubscribe();
   }
 
-  calculate(value, invertDirection = false){
+  calculate(value, invertDirection = true){
     return invertDirection ? -(value) : value ;
   }
 
   setPosition(card, value, limits, rotate){
-    if(value.left < 3 && value.left > -3){
+    if(value.left < 3 && value.left > -3  && value.top < 9 && value.top > -9){
       if(rotate) {
-        card.style.transform = "translateX(" + (value.left * limits.movementConstant) +"%)"
+        // card.style.transform = "translateX(" + (value.left * limits.movementConstant) +"%)"
+        card.style.transform = "translate(" +  (value.left * limits.movementConstant) +"%, "+  (value.top)+ "%)"
         // card.style.transform = "translateX(" + (value.left * limits.movementConstant) +"%) rotateY("+ value.left * (-7) +"deg)"
       } else {
-        card.style.transform = "translateX(" + (value.left * limits.movementConstant) +"%)"
+        return;
       }
     }
   }
