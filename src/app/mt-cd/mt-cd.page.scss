@@ -67,7 +67,7 @@ body {
       // background-size: cover;
       // transform-style: preserve-3d;
       // perspective: 1000px;
-      // transform-style: preserve-3d;
+      transform-style: preserve-3d;
       .card_fourth {
         border-radius: 8px;
         background-image: url('/assets/icon/fourth.jpg');
@@ -79,12 +79,12 @@ body {
         position: absolute;
         left: -16px;
         top: -26px;
-        transition :linear .15s;
+        transition :linear .1s;
 
       //  margin-left: -32px;
         // margin-top: -40px;
         // left: 0;
-        // transform-style: preserve-3d;
+        transform-style: preserve-3d;
       }
 
       .card_third {
@@ -98,9 +98,9 @@ body {
         left: -32px;
         top: -8px;
         position: absolute;
-        transition :linear .15s;
+        transition :linear .1s;
         // transition-timing-function: cubic-bezier(0.1, 0.7, 1.0, 0.1);
-
+        transform-style: preserve-3d;
 
       }
 
