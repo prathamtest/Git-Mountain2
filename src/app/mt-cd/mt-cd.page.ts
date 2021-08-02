@@ -80,10 +80,10 @@ export class MtCdPage implements OnInit {
   }
 
   setPosition(card, value, limits, rotate){
-    if(value.left < 3 && value.left > -3  && value.top < 9 && value.top > -9){
+    if(value.left < 3 && value.left > -3  && value.top < 4 && value.top > -4){
       if(rotate) {
         // card.style.transform = "translateX(" + (value.left * limits.movementConstant) +"%)"
-        card.style.transform = "translate(" +  (value.left * limits.movementConstant) +"%, "+  (value.top)+ "%)"
+        card.style.transform = "translate(" +  (value.left * limits.movementConstant) +"%, "+  (value.top * limits.movementConstant)+ "%)"
         // card.style.transform = "translateX(" + (value.left * limits.movementConstant) +"%) rotateY("+ value.left * (-7) +"deg)"
       } else {
         return;
